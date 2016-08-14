@@ -1,16 +1,10 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; /*
-                                                                                                                                                                                                                                                   * 中文格式化金额,最大支持9999亿。
-                                                                                                                                                                                                                                                   */
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/*
+ * 中文格式化金额,最大支持9999亿。
+ */
 var ChineseNumbeMap = {
   0: '零',
   1: '壹',
@@ -112,7 +106,7 @@ function formatCurrency(originNumber) {
   var hundredMillion = 0;
   hundredMillion = parseInt(originNumber / 100000000);
   // 注意，1/1000000000，当执行parseInt的时候，是以指数 1+e-10来标识的，parseInt后仍然是1
-  if (hundredMillion >= 1 && originNumber > 100000000) {
+  if (hundredMillion >= 1 && originNumber >= 100000000) {
     if (hundredMillion > 9999) {
       return '数额过大';
     }
