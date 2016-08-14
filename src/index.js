@@ -1,7 +1,6 @@
 /*
  * 中文格式化金额,最大支持9999亿。
  */
-import React from 'react'
 const ChineseNumbeMap = {
   0: '零',
   1: '壹',
@@ -103,7 +102,7 @@ function formatCurrency (originNumber) {
   let hundredMillion = 0
   hundredMillion = parseInt(originNumber / 100000000)
     // 注意，1/1000000000，当执行parseInt的时候，是以指数 1+e-10来标识的，parseInt后仍然是1
-  if (hundredMillion >= 1 && originNumber > 100000000) {
+  if (hundredMillion >= 1 && originNumber >= 100000000) {
     if (hundredMillion > 9999) {
       return '数额过大'
     }

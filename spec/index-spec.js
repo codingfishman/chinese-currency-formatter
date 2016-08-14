@@ -10,6 +10,12 @@ describe('测试中文的格式化', () =>{
     const result = ChinesesCurrencyFormatter(undefined)
     expect(result).toEqual('无效金额')
   })
+
+  it('100000000', () => {
+    const result = ChinesesCurrencyFormatter(100000000)
+    expect(result).toEqual('壹亿圆整')
+  })
+
   it('0', () => {
     const result = ChinesesCurrencyFormatter(0)
     expect(result).toEqual('零圆整')
